@@ -9,12 +9,14 @@ import Page5 from './components/Page5'
 function App() {
   return (
     <>
-   <Navbar/>  
-     <Page1/>
-    <Page2/>
-    <Page3/>
-<Page4/>
-<Page5/>
+      <Navbar />
+      <Page1 />
+      <Page2 />
+      <Page3 />
+      <Page4 />
+      <Page5 />
+
+
     </>
 
   )

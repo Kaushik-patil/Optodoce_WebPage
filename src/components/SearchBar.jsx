@@ -17,8 +17,7 @@ const SearchBar = () => {
         borderRadius: '20px',
         padding: '4px',
         width: '100%',
-        maxWidth: '500px',
-        minWidth:'300px'
+        
       }}
     >
       <TextField

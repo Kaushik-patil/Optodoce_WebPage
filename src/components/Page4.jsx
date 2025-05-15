@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import work from '../Images/work.png';
 
 const Page4 = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 800);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div
       style={{
@@ -11,45 +19,49 @@ const Page4 = () => {
         width: '100%',
         padding: '20px',
         boxSizing: 'border-box',
+        overflowX: 'hidden',
       }}
     >
-      {/* Div 1 */}
+      {/* Top Section */}
       <div
         style={{
           display: 'flex',
-          flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
-          height: window.innerWidth <= 768 ? 'auto' : '50vh',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'space-between',
-          alignItems: window.innerWidth <= 768 ? 'flex-start' : 'center',
+          alignItems: isMobile ? 'flex-start' : 'center',
           padding: '20px',
           backgroundColor: '#ffffff',
           borderRadius: '10px',
           marginBottom: '20px',
+          gap: '20px',
+          flexWrap: 'wrap',
         }}
       >
-        {/* Div 3 */}
+        {/* Text Section */}
         <div
           style={{
             flex: 1,
-            paddingRight: window.innerWidth <= 768 ? '0' : '20px',
-            paddingLeft: window.innerWidth <= 768 ? '0' : '100px',
-            width: window.innerWidth <= 768 ? '100%' : '50vw',
-            marginBottom: window.innerWidth <= 768 ? '20px' : 0,
+            paddingLeft: isMobile ? '0' : '80px',
+            paddingRight: isMobile ? '0' : '20px',
+            width: '100%',
+            boxSizing: 'border-box',
           }}
         >
           <h1
             style={{
-              fontSize: window.innerWidth <= 768 ? '24px' : '30px',
+              fontSize: isMobile ? '24px' : '30px',
               fontWeight: 'bold',
+              marginBottom: '10px',
             }}
           >
             Our Mission
           </h1>
           <p
             style={{
-              fontSize: window.innerWidth <= 768 ? '14px' : '18px',
+              fontSize: isMobile ? '14px' : '18px',
               color: '#333',
               margin: 0,
+              lineHeight: '1.5',
             }}
           >
             We believe in serving quality services which can meet customers'
@@ -60,52 +72,54 @@ const Page4 = () => {
           </p>
         </div>
 
-        {/* Div 4 */}
+        {/* Image Section */}
         <div
           style={{
             flex: 1,
-            textAlign: window.innerWidth <= 768 ? 'center' : 'right',
-            maxWidth: '900px',
-            maxHeight: '400px',
+            textAlign: isMobile ? 'center' : 'right',
+            width: '100%',
+            maxWidth: isMobile ? '100%' : '600px',
           }}
         >
           <img
             src={work}
             alt="work"
             style={{
-              maxWidth: '100%',
+              width: '100%',
               height: 'auto',
               borderRadius: '8px',
+              objectFit: 'cover',
             }}
           />
         </div>
       </div>
 
-      {/* Div 2 */}
+      {/* Bottom Section */}
       <div
         style={{
           backgroundColor: 'white',
           padding: '20px',
           borderRadius: '10px',
-          height: '30vh', 
           minHeight: '200px',
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
+          paddingLeft:isMobile? '20px':'100px',
+          paddingRight:'20px',
+          boxSizing:'border-box',
         }}
       >
-        {/* Div 5 */}
         <p
           style={{
-            width: '100%',
-            fontSize: 'clamp(36px, 10vw, 150px)', 
+            fontSize: 'clamp(36px, 10vw, 150px)',
             fontWeight: 'bold',
-            textAlign: 'center',
+            textAlign: 'left',
             color: '#e0e0e0',
             margin: 0,
+            opacity:'0.5'
           }}
         >
-          Mission
+          MISSION
         </p>
       </div>
     </div>

@@ -6,7 +6,6 @@ import Image13 from '../Images/Image13.png';
 import Image14 from '../Images/Image14.png';
 import Image15 from '../Images/Image15.jpg';
 import SearchBar from './SearchBar';
-import Navbar from './Navbar';
 
 const Page1 = () => {
   return (
@@ -20,32 +19,35 @@ const Page1 = () => {
 
   .top-section {
     flex-direction: column;
-    min-width: 100%;
-    max-height: none;
     align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
   }
 
-  .left-profile,
-  .right-image {
-    margin-top: 20px;
-    width: 80px !important;
-    height: 80px !important;
+  .left-profile, .right-image {
+    width: 100px;
+    height: 100px;
+    margin: 0;
   }
 
   .center-content {
-    padding: 10px !important;
-    min-width: unset;
     width: 100%;
-    max-height: none;
+    padding: 10px;
+    max-height: unset;
   }
 
   .headline-text p {
-    font-size: 2.5rem !important;
+    font-size: 5rem;
   }
 
   .description-text {
-    max-width: 100% !important;
-    font-size: 14px !important;
+    font-size: 14px;
+  }
+
+  .tags-container {
+    flex-direction: column;
+    gap: 8px;
   }
 
  .bottom-section {
@@ -86,11 +88,6 @@ const Page1 = () => {
   min-height: 180px;
 }
 
-  .tags-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px !important;
-  }
 }
 
 .main-container {
@@ -99,12 +96,7 @@ const Page1 = () => {
 }
   
 @media (max-width: 768px) {
-  .top-section {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+
 
  .left-profile,
   .right-image {
@@ -164,7 +156,6 @@ const Page1 = () => {
 @media (max-width: 480px) {
   .headline-text p {
     font-size: 1.8rem !important;
-    line-height: 1.2;
   }
 
   .description-text {
@@ -214,7 +205,7 @@ const Page1 = () => {
       </style>
 
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', minHeight: '100vh', width: '100%', background: 'black' }}>
-  <div style={{ width: '100%', maxWidth: '1400px', padding: '20px', boxSizing: 'border-box' }} className="main-container">
+        <div style={{ width: '100%', maxWidth: '1400px', padding: '20px', boxSizing: 'border-box' }} className="main-container">
 
 
           {/* upper */}
@@ -225,6 +216,7 @@ const Page1 = () => {
               width: '100%',
               flexWrap: 'wrap',
               alignItems: 'flex-start',
+              justifyContent: 'center',
               padding: '20px',
               boxSizing: 'border-box',
               gap: '20px',
@@ -235,9 +227,8 @@ const Page1 = () => {
 
             <div
               style={{
-                width: '200px',
-                // minWidth: '80px',
-                height: '200px',
+                width: 'clamp(80px, 15vw, 200px)',
+                height: 'clamp(80px, 15vw, 200px)',
                 marginTop: '150px',
                 marginRight: '0',
                 borderRadius: '50%',
@@ -246,7 +237,7 @@ const Page1 = () => {
               }}
               className="left-profile"
             >
-               <img src={Image14} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+              <img src={Image14} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
 
               />
             </div>
@@ -261,6 +252,7 @@ const Page1 = () => {
                 minWidth: '300px',
                 boxSizing: 'border-box',
                 maxHeight: '560px',
+
               }}
               className="center-content"
             >
@@ -274,7 +266,7 @@ const Page1 = () => {
                 }}
               >
                 <div style={{ textAlign: 'center' }} className="headline-text">
-                  <p style={{ fontSize: '70px', margin: 0 }}>
+                  <p style={{ fontSize: 'clamp(50px,1vw,70px)', margin: 0 }}>
                     <span>Best AI Content Platform</span>
                     <br />
                     <span style={{ color: '#6A41FB' }}>Image </span>
@@ -329,6 +321,7 @@ const Page1 = () => {
                     borderRadius: '8px',
                     flexWrap: 'wrap',
                     justifyContent: 'center',
+
                   }}
                   className="tags-container"
                 >
@@ -337,7 +330,7 @@ const Page1 = () => {
                     <button
                       key={tag}
                       style={{
-                        padding: '4px 12px',
+                        padding: '.5vw 2vw',
                         borderRadius: '20px',
                         backgroundColor: '#343435',
                         color: 'white',
@@ -354,9 +347,9 @@ const Page1 = () => {
 
             <div
               style={{
-                width: '10%',
-                minWidth: '100px',
-                height: '250px',
+
+                width: 'clamp(80px, 15vh, 200px)',
+                height: 'clamp(80px, 15vw, 200px)',
                 marginTop: '10%',
                 marginRight: '5%',
                 flexShrink: 0,
@@ -373,7 +366,7 @@ const Page1 = () => {
           <div style={{
             display: 'flex',
             flexDirection: 'row',
-            height: '700px',
+           // height: '700px',
             width: '100%',
             boxSizing: 'border-box'
           }} className="bottom-section">
@@ -416,7 +409,7 @@ const Page1 = () => {
               }}>
                 <p style={{
                   color: 'white',
-                  fontSize: '1.125rem',
+                  fontSize: 'clamp(1rem, 2vw, 1.25rem)',
                   lineHeight: 1.6,
                   margin: 0
                 }}>
@@ -449,7 +442,8 @@ const Page1 = () => {
                     borderRadius: '30px',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    whiteSpace: 'nowrap'
                   }}>
                     <button style={{
                       color: 'white',
